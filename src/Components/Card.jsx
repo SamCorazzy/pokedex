@@ -1,5 +1,28 @@
 import React from "react";
-const Card = ({ pokemon, loading, infoPokemon }) => {
+
+const tiposEle = {
+  steel: "Acero",
+  water: "Agua",
+  bug: "Bicho",
+  dragon: "Dragón",
+  electric: "Eléctrico",
+  ghost: "Fantasma",
+  fire: "Fuego",
+  fairy: "Hada",
+  ice: "Hielo",
+  fighting: "Lucha",
+  normal: "Normal",
+  grass: "Planta",
+  psychic: "Psíquico",
+  rock: "Roca",
+  dark: "Siniestro",
+  ground: "Tierra",
+  poison: "Veneno",
+  flying: "Volador",
+}
+
+
+const Card = ({ pokemon, loading, infoPokemon}) => {
   // console.log(pokemon);
   return (
     <>
@@ -7,7 +30,7 @@ const Card = ({ pokemon, loading, infoPokemon }) => {
         <h1>Loading...</h1>
       ) : (
         pokemon.map((item) => {
-        //   console.log(item);
+      //  console.log(item.moves);
           return (
             <>
               <div
@@ -21,7 +44,7 @@ const Card = ({ pokemon, loading, infoPokemon }) => {
                 <h2>{item.name}</h2>
                   {item.types.map((tipo) => {
                     return(
-                      <p className="tipo">{tipo.type.name}</p>
+                      <p className="tipo">Tipo: {tiposEle[tipo.type.name]}</p>
                       )
                   })}
                 </div>

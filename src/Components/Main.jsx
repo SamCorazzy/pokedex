@@ -4,6 +4,8 @@ import Pokeinfo from "./Pokeinfo";
 import axios from "axios";
 import { useState } from "react";
 import { useEffect } from "react";
+
+
 const Main = () => {
     const [pokeData, setPokeData] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -15,7 +17,6 @@ const Main = () => {
     const pokeFun = async () => {
         setLoading(true);
         const res = await axios.get(url);
-        console.log(res);
         setNextUrl(res.data.next);
         setPrevUrl(res.data.previous);
         getPokemon(res.data.results);
@@ -31,9 +32,14 @@ const Main = () => {
             });
         });
     };
+
     useEffect(() => {
         pokeFun();
     }, [url]);
+
+
+
+
     return (
         <>
             <div className="total">
@@ -93,7 +99,7 @@ const Main = () => {
                     </div>
                 </div>
                 <div className="right-content">
-                    <Pokeinfo data={pokeDex} />
+                    <Pokeinfo data={pokeDex}/>
                 </div>
             </div>
         </>
