@@ -17,7 +17,14 @@ const Card = ({ pokemon, loading, infoPokemon }) => {
               >
                 <h2>{item.id}</h2>
                 <img src={item.sprites.front_default} alt="" />
+                <div className="tipos">
                 <h2>{item.name}</h2>
+                  {item.types.map((tipo,index) => {
+                    return(
+                      <p className="tipo">{tipo.type.name}</p>
+                      )
+                  })}
+                </div>
               </div>
             </>
           );
